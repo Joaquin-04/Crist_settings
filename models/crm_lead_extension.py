@@ -14,8 +14,8 @@ class CRMLead(models.Model):
                 raise exceptions.UserError(
                     "No se puede crear un presupuesto porque el cliente no tiene el campo (CUIT/CUIL/DNI) completo."
                 )
-            elif not self.partner_id.email:
-                raise exceptions.UserError(
-                    "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
-                )
+            #elif not self.partner_id.email:
+            #    raise exceptions.UserError(
+            #        "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
+            #   )
         return super(CRMLead, self).action_sale_quotations_new()

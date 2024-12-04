@@ -13,10 +13,10 @@ class SaleOrder(models.Model):
             partner = order.partner_id
             if not partner.l10n_latam_identification_type_id or not partner.vat:
                 raise UserError("El contacto debe tener configurado el tipo de identificación y el campo (CUIT/CUIL/DNI) completo para confirmar la orden de venta.")
-            elif not partner.email:
-                raise UserError(
-                    "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
-                )
+            #elif not partner.email:
+            #    raise UserError(
+            #        "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
+            #    )
         return super(SaleOrder, self).action_confirm()
 
     
