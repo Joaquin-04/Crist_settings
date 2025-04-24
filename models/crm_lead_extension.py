@@ -6,7 +6,7 @@ _logger = logging.getLogger(__name__)
 
 class CRMLead(models.Model):
     _inherit = 'crm.lead'
-    """
+
     def action_sale_quotations_new(self):
         _logger.warning("action_sale_quotations_new")
         if self.partner_id: 
@@ -19,5 +19,3 @@ class CRMLead(models.Model):
             #        "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
             #   )
         return super(CRMLead, self).action_sale_quotations_new()
-    
-    """

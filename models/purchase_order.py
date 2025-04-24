@@ -4,7 +4,6 @@ from odoo.exceptions import UserError
 class PurchaseOrder(models.Model):
     _inherit = 'purchase.order'
 
-    """
     def button_confirm(self):
         for order in self:
             partner = order.partner_id
@@ -29,5 +28,3 @@ class PurchaseOrder(models.Model):
                     "No se puede crear un presupuesto porque el cliente no tiene el campo (Correo electrónico) completo."
                 )
         return super(PurchaseOrder, self).button_approve()
-
-    """
