@@ -7,6 +7,16 @@ _logger = logging.getLogger(__name__)
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
+    #Modificando el compute del display_name, par que combine el nombre del cliente con el nombre de la orden de venta.
+
+    @api.depends('name', 'partner_id.name')
+    def _compute_display_name(self):
+        for order in self:
+            if order.partner_id:
+                order.display_name = f"{order.partner_id.name} - {order.name}"
+            else:
+                order.display_name = order.name
+
     
     def action_confirm(self):
         for order in self:
