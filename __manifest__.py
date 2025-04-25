@@ -4,7 +4,9 @@
     'summary': 'Configuraciones específicas para la empresa',
     'author': 'Tu Empresa',
     'depends': ['crm','sale_management', 'purchase', 'stock'],
-    'data': [],
+    'data': [
+        'views/sale_order_views.xml',
+    ],
     'post_init_hook': 'post_init_hook',
     'installable': True,
     'application': False,

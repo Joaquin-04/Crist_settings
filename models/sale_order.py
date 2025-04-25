@@ -8,15 +8,26 @@ class SaleOrder(models.Model):
     _inherit = 'sale.order'
 
     #Modificando el compute del display_name, par que combine el nombre del cliente con el nombre de la orden de venta.
-
     @api.depends('name', 'partner_id.name')
     def _compute_display_name(self):
         for order in self:
-            if order.partner_id:
-                order.display_name = f"{order.partner_id.name} - {order.name}"
+            if order.opportunity_id:
+                order.display_name = f"{order.opportunity_id.name} - {order.name}"
             else:
                 order.display_name = order.name
 
+    # Funcion que sirve para abrir una ventana con la oportunidad relacionada con la orden de venta
+    # esta accion va a ser llamada por un boton en la vista form de la orden de venta.
+    def action_open_opportunity(self):
+        self.ensure_one()  # Asegura que se trabaja con un único registro
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'crm.lead',  # Modelo de la oportunidad (crm.lead)
+            'res_id': self.opportunity_id.id,  # ID de la oportunidad relacionada
+            'views': [(False, 'form')],  # Vista de formulario
+            'view_mode': 'form',
+            'target': 'current',  # Abre en la misma ventana
+        }
     
     def action_confirm(self):
         for order in self:

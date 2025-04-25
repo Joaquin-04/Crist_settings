@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_order_form_add_opportunity_button" model="ir.ui.view">
+        <field name="name">sale.order.form.add.opportunity.button</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="priority" eval="164"/>
+        <field name="arch" type="xml">
+            <!--
+            <xpath expr="//button[@name='action_view_delivery']" position="before">
+            -->
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_open_opportunity" string="Oportunidad" type="object" class="oe_stat_button" invisible="not opportunity_id" icon="fa-briefcase">
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>
