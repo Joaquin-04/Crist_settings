@@ -3,7 +3,7 @@
     'version': '1.0',
     'summary': 'Configuraciones específicas para la empresa',
     'author': 'Tu Empresa',
-    'depends': ['crm','sale_management', 'purchase', 'stock'],
+    'depends': ['project','Project_Custom','crm','sale_management', 'purchase', 'stock'],
     'data': [
         'views/sale_order_views.xml',
     ],

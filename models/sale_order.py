@@ -1,4 +1,4 @@
-from odoo import models, api
+from odoo import models, api, fields
 from odoo.exceptions import UserError
 import logging
 
@@ -6,6 +6,37 @@ _logger = logging.getLogger(__name__)
 
 class SaleOrder(models.Model):
     _inherit = 'sale.order'
+
+    # Campos - Atributos del Producto
+    nv_tipo = fields.Many2one(
+        "project.obratipo", 
+        string="NV Tipo"
+    )
+    nv_linea = fields.Many2one(
+        "project.lnarti", 
+        string="NV Línea"
+    )
+    nv_color = fields.Many2one(
+        "project.color", 
+        string="NV Color"
+    )
+    nv_cantidad_carpinteria = fields.Char(
+        string="NV Cantidad de Carpintería"
+    )
+    nv_es_express = fields.Boolean(
+        string="NV ¿Es Express?"
+    )
+
+    # Campos - Unidades
+    nv_kg_perfileria = fields.Integer(
+        string="NV Kg Perfilería"
+    )
+    nv_m2_producto_terminado = fields.Float(
+        string="NV M2 Producto Terminado"
+    )
+    nv_lleva_dvh = fields.Boolean(
+        string="NV ¿Lleva DVH?"
+    )
 
     #Modificando el compute del display_name, par que combine el nombre del cliente con el nombre de la orden de venta.
     @api.depends('name', 'partner_id.name')

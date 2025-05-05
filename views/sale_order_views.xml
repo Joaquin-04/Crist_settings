@@ -13,6 +13,27 @@
                 <button name="action_open_opportunity" string="Oportunidad" type="object" class="oe_stat_button" invisible="not opportunity_id" icon="fa-briefcase">
                 </button>
             </xpath>
+
+            <!-- Agregar nueva pestaña después de la sección de "Otras Info" -->
+            <xpath expr="//page[@name='other_information']" position="after">
+                <page string="Detalles Técnicos">
+                    <group string="Atributos del Producto">
+                        <field name="nv_tipo"/>
+                        <field name="nv_linea"/>
+                        <field name="nv_color"/>
+                        <field name="nv_cantidad_carpinteria"/>
+                        <field name="nv_es_express"/>
+                    </group>
+                    <group string="Unidades">
+                        <field name="nv_kg_perfileria"/>
+                        <field name="nv_m2_producto_terminado"/>
+                        <field name="nv_lleva_dvh"/>
+                    </group>
+                </page>
+            </xpath>
         </field>
     </record>
+
+
+    
 </odoo>
