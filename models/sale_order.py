@@ -10,32 +10,40 @@ class SaleOrder(models.Model):
     # Campos - Atributos del Producto
     nv_tipo = fields.Many2one(
         "project.obratipo", 
-        string="NV Tipo"
+        string="NV Tipo",
+        tracking=True
     )
     nv_linea = fields.Many2one(
         "project.lnarti", 
-        string="NV Línea"
+        string="NV Línea",
+        tracking=True
     )
     nv_color = fields.Many2one(
         "project.color", 
-        string="NV Color"
+        string="NV Color",
+        tracking=True
     )
     nv_cantidad_carpinteria = fields.Char(
-        string="NV Cantidad de Carpintería"
+        string="NV Cantidad de Carpintería",
+        tracking=True
     )
     nv_es_express = fields.Boolean(
-        string="NV ¿Es Express?"
+        string="NV ¿Es Express?",
+        tracking=True
     )
 
     # Campos - Unidades
     nv_kg_perfileria = fields.Integer(
-        string="NV Kg Perfilería"
+        string="NV Kg Perfilería",
+        tracking=True
     )
     nv_m2_producto_terminado = fields.Float(
-        string="NV M2 Producto Terminado"
+        string="NV M2 Producto Terminado",
+        tracking=True
     )
     nv_lleva_dvh = fields.Boolean(
-        string="NV ¿Lleva DVH?"
+        string="NV ¿Lleva DVH?",
+        tracking=True
     )
 
     #Modificando el compute del display_name, par que combine el nombre del cliente con el nombre de la orden de venta.
